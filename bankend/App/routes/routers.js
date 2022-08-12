@@ -22,8 +22,8 @@ router.post("/registersp",register.registerServiceProvider)
 
 
 // read
-router.get('/loginuser',login.loginUser)
-router.get('/loginsp', login.loginsp)
+router.post('/loginuser',login.loginuser)
+router.post('/loginsp', login.loginsp)
 
 router.get('/getplumbers',get.getPlumbers)
 router.get('/getelects',get.getElect)

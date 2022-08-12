@@ -9,8 +9,8 @@ const app = express(); //Initialize express
 
 
 
-module.exports.loginUser = async (req, res) => {
-  const { email, password } = req.body;
+module.exports.loginuser = async (req, res) => {
+  const { firstname, lastname, email, phonenumber, password } = req.body;
   try {
  
     const logData = await client.query(
@@ -57,9 +57,8 @@ module.exports.loginUser = async (req, res) => {
 
 
 
-
 module.exports.loginsp = async (req, res) => {
-  const {  firstname,lastname,email,jobtype,city,avgrate,phonenumber,password } = req.body;
+  const { firstname, lastname, email, phonenumber, password } = req.body;
   try {
     console.log('password ' + password);
   

@@ -27,6 +27,8 @@ router.post('/loginsp', login.loginsp)
 // read
 router.get('/getpending', get.getPending)
 router.get('/getactive', get.getActive)
+router.get('/getcomplete', get.getComplete)
+router.get('/getrejected', get.getRejected)
 
 router.get("/getpending/:psemail", get.getPendingSp);
 
@@ -36,10 +38,10 @@ router.get('/getmasons',get.getMason)
 router.get('/getpainters',get.getPainter)
 
 //update
-router.put('/updaterequest/:id', update.updateStatus )
+router.put('/updaterequest/:requestid', update.updateStatus )
 
 //delete
-router.delete('/deleterequest/:spname',deleter.deleteRequest)
+router.delete('/deleterequest/:requestid',deleter.deleteRequest)
 
 
 

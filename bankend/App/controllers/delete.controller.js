@@ -2,10 +2,10 @@ const client = require("../config/database.config");
 
 
 module.exports.deleteRequest = (req, res) => {
-    const spname = req.params.spname;
+    const requestid = req.params.requestid;
   
    try{
-    client.query(`DELETE FROM request WHERE spname = $1`,[spname],(error, results) => {
+    client.query(`DELETE FROM request WHERE requestid = $1 `,[requestid],(error, results) => {
           if (error) {
             console.error(error);
             return res.status(500).json({

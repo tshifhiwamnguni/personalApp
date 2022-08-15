@@ -28,6 +28,7 @@ app.use(express.urlencoded({ extended: true }));
 // simple route  // to support JSON-encoded 
 // app.use( cors({origin: true, credentials: true}) )
  
+
 app.use(bodyParser.json())
 app.use(
     bodyParser.urlencoded({

@@ -14,16 +14,21 @@ const get = require('../controllers/get.controller')
 
 
 
-//create 
+//Post 
 router.post("/addrequest", create.addRequest);
 
 router.post("/registeruser",register.registerUser)
 router.post("/registersp",register.registerServiceProvider)
 
-
-// read
 router.post('/loginuser',login.loginuser)
 router.post('/loginsp', login.loginsp)
+
+
+// read
+router.get('/getpending', get.getPending)
+router.get('/getactive', get.getActive)
+
+router.get("/getpending/:psemail", get.getPendingSp);
 
 router.get('/getplumbers',get.getPlumbers)
 router.get('/getelects',get.getElect)

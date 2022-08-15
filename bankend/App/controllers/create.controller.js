@@ -5,7 +5,7 @@ const client = require("../config/database.config");
 //create a request
 module.exports.addRequest = async (req, res) => {
     const {
-        status , description ,spname, useremail, phonenumber
+      description ,spname, useremail,psemail, phonenumber
     } = req.body;
 
     try {
@@ -19,8 +19,8 @@ module.exports.addRequest = async (req, res) => {
       
   
         client.query(
-          `INSERT INTO request ( status , description ,spname, useremail, phonenumber) VALUES ($1,$2,$3,$4, $5)`,
-          [status , description ,spname, useremail, phonenumber],
+          `INSERT INTO request ( status , description ,spname, useremail,psemail, phonenumber) VALUES ($1,$2,$3,$4, $5, $6)`,
+          ["pending" , description ,spname, useremail,psemail, phonenumber],
           (err) => {
             if (err) {
               console.error(err);

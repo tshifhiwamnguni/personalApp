@@ -20,19 +20,19 @@ module.exports.loginuser = async (req, res) => {
     arrData = logData.rows;
 
     if (arrData.length == 0) {
-      res.status(400).json({
+      res.status(400).send({
         message: "user doesn't exist",
       });  
     } else {
       bcrypt.compare(password, arrData[0].password, (err, results) => {
         if (err) {
-          res.status(500).json({
+          res.status(500).send({
             error: "Server error",
           });
         } else if (results === true) {
           const token = jwt.sign({ email: email }, process.env.SECRET_KEY);
           logData.rows.token = token;
-          res.status(200).json({
+          res.status(200).send({
             message: "User successfully signed in",
             arrData,
             token,
@@ -40,7 +40,7 @@ module.exports.loginuser = async (req, res) => {
         } else {
           //define errors
           if (results != true) {
-            res.status(400).json({
+            res.status(400).send({
               error: "incorrect password",
             });
           }
@@ -49,7 +49,7 @@ module.exports.loginuser = async (req, res) => {
     }
   } catch (error) {
     console.log(error);
-    res.status(500).json({
+    res.status(500).send({
       error: "Database error while logging in!",
     });
   }
@@ -66,19 +66,19 @@ module.exports.loginsp = async (req, res) => {
     arrData = logData.rows;
 
     if (arrData.length == 0) {
-      res.status(400).json({
+      res.status(400).send({
         message: "user doesn't exist",
       });  
     } else {
       bcrypt.compare(password, arrData[0].password, (err, results) => {
         if (err) {
-          res.status(500).json({
+          res.status(500).send({
             error: "Server error",
           });
         } else if (results === true) {
           const token = jwt.sign({ email: email }, process.env.SECRET_KEY);
           logData.rows.token = token;
-          res.status(200).json({
+          res.status(200).send({
             message: "User successfully signed in",
             arrData,
             token,
@@ -86,7 +86,7 @@ module.exports.loginsp = async (req, res) => {
         } else {
           //define errors
           if (results != true) {
-            res.status(400).json({
+            res.status(400).send({
               error: "incorrect password",
             });
           }
@@ -95,7 +95,7 @@ module.exports.loginsp = async (req, res) => {
     }
   } catch (error) {
     console.log(error);
-    res.status(500).json({
+    res.status(500).send({
       error: "Database error while logging in!",
     });
   }
